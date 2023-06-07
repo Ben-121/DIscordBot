@@ -13,14 +13,14 @@
 // If you don't know how to get a bot token, please see the guide here:
 // https://github.com/jagrosh/MusicBot/wiki/Getting-a-Bot-Token
 
-token = MTExNTkwMzA3MDU1NjE0MzY4Ng.GJxwWv.n8GwVX5ZpMji_dwpb7-Gz8NP9AiJNVqs7c46QQ
+token = GET_NEW_TOKEN
 
 
 // This sets the owner of the bot
 // This needs to be the owner's ID (a 17-18 digit number)
 // https://github.com/jagrosh/MusicBot/wiki/Finding-Your-User-ID
 
-owner = 704216192612696084
+owner = YOUR_PERSONAL_ID
 
 
 // This sets the prefix for the bot
@@ -28,7 +28,7 @@ owner = 704216192612696084
 // If you use !!, the play command will be !!play
 // If you do not set this, the prefix will be a mention of the bot (@Botname play)
 
-prefix = "!!!"
+prefix = "@mention"
 
 
 // If you set this, it modifies the default game of the bot
@@ -51,13 +51,13 @@ status = ONLINE
 // "Playing" status. Note that this will ONLY work if the bot is playing music on ONE guild;
 // if the bot is playing on multiple guilds, this will not work.
 
-songinstatus=true
+songinstatus=false
 
 
 // If you set this, the bot will also use this prefix in addition to
 // the one provided above
 
-altprefix = "-"
+altprefix = "NONE"
 
 
 // If you set these, it will change the various emojis
@@ -81,7 +81,7 @@ help = help
 // This is because refreshing the boxes causes the image to be reloaded
 // every time it refreshes.
 
-npimages = true
+npimages = false
 
 
 // If you set this, the bot will not leave a voice channel after it finishes a queue.
@@ -97,11 +97,13 @@ stayinchannel = false
 
 maxtime = 0
 
+
 // This sets the amount of seconds the bot will stay alone on a voice channel until it
 // automatically leaves the voice channel and clears the queue. If not set or set
 // to any number less than or equal to zero, the bot won't leave when alone.
 
 alonetimeuntilstop = 0
+
 
 // This sets an alternative folder to be used as the Playlists folder
 // This can be a relative or absolute path
@@ -140,9 +142,9 @@ aliases {
   settings = [ status ]
 
   // Music commands
-  lyrics = [ l ]
+  lyrics = []
   nowplaying = [ np, current ]
-  play = [ p ]
+  play = []
   playlists = [ pls ]
   queue = [ list ]
   remove = [ delete ]
@@ -154,20 +156,34 @@ aliases {
   // Admin commands
   prefix = [ setprefix ]
   setdj = []
+  setskip = [ setskippercent, skippercent, setskipratio ]
   settc = []
   setvc = []
 
   // DJ Commands
-  forceremove = [ forcedelete, modremove, moddelete ]
+  forceremove = [ forcedelete, modremove, moddelete, modelete ]
   forceskip = [ modskip ]
   movetrack = [ move ]
   pause = []
   playnext = []
   repeat = []
   skipto = [ jumpto ]
-  stop = [ s ]
+  stop = [ leave ]
   volume = [ vol ]
 }
+
+
+// Transforms are used to modify specific play inputs and convert them to different kinds of inputs
+// These are quite complicated to use, and have limited use-cases, but in theory allow for rough
+// whitelists or blacklists, roundabout loading from some sources, and customization of how things are
+// requested.
+//
+// These are NOT EASY to set up, so if you want to use these, you'll need to look through the code 
+// for how they work and what fields are needed. Also, it's possible this feature might get entirely
+// removed in the future if I find a better way to do this.
+
+transforms = {}
+
 
 // If you set this to true, it will enable the eval command for the bot owner. This command
 // allows the bot owner to run arbitrary code from the bot's account.
